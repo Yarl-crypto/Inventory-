@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Inventory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>📦 Shop Inventory</h1>
+  <div id="userBar"></div>
+</header>
+
+<!-- AUTH SCREEN -->
+<section id="authScreen">
+  <div class="tabs">
+    <button id="tabLogin" class="tab active">Login</button>
+    <button id="tabRegister" class="tab">Register</button>
+  </div>
+
+  <form id="loginForm" class="card">
+    <input type="text" id="loginUsername" placeholder="Username" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button type="submit">Log in</button>
+    <p class="msg" id="loginMsg"></p>
+  </form>
+
+  <form id="registerForm" class="card hidden">
+    <input type="text" id="regUsername" placeholder="Username" required>
+    <input type="email" id="regEmail" placeholder="Email" required>
+    <input type="password" id="regPassword" placeholder="Password" required>
+    <button type="submit">Create account</button>
+    <p class="msg" id="regMsg"></p>
+    <p class="hint">New accounts can view items and propose changes. An admin must approve edits.</p>
+  </form>
+</section>
+
+<!-- MAIN APP -->
+<section id="appScreen" class="hidden">
+
+  <div class="searchbar">
+    <input type="text" id="searchInput" placeholder="Search name, category, keyword...">
+    <button id="searchBtn">Search</button>
+    <button id="newItemBtn" class="secondary">+ New Item</button>
+    <button id="pendingBtn" class="secondary hidden" id="pendingTabBtn">Pending</button>
+  </div>
+
+  <div id="itemList" class="item-list"></div>
+
+  <div id="pendingList" class="item-list hidden"></div>
+
+</section>
+
+<!-- ITEM FORM MODAL -->
+<div id="itemModal" class="modal hidden">
+  <div class="modal-content">
+    <h2 id="itemModalTitle">New Item</h2>
+    <form id="itemForm">
+      <input type="text" id="f_item_no" placeholder="Item No (e.g. BK-0001)" required>
+      <input type="text" id="f_category" placeholder="Category" required>
+      <input type="text" id="f_name" placeholder="Item Name" required>
+      <input type="number" step="0.01" id="f_price" placeholder="Price" required>
+      <textarea id="f_description" placeholder="Description"></textarea>
+      <input type="text" id="f_keywords" placeholder="Keywords (comma separated)">
+      <input type="file" id="f_image" accept="image/*">
+      <div id="f_image_preview"></div>
+      <div class="modal-actions">
+        <button type="submit" id="itemFormSubmit">Save</button>
+        <button type="button" id="itemFormCancel" class="secondary">Cancel</button>
+      </div>
+      <p class="msg" id="itemFormMsg"></p>
+    </form>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
